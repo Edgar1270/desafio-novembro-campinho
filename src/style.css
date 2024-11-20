@@ -1,0 +1,212 @@
+/* Reset básico para garantir consistência */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definindo a fonte padrão e a cor de fundo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Layout do cabeçalho */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Flexível para telas menores */
+}
+
+header h1 {
+    font-size: 24px;
+    flex: 1 1 100%;
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    flex: 1 1 100%; /* Para garantir que o menu ocupe toda a largura */
+    justify-content: center;
+    margin-top: 10px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Modal de características do produto */
+#modal-caracteristicas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 15px;
+    width: 100%;
+    max-width: 50%; /* Menor largura para o modal */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Menos sombra */
+}
+
+#fechar-modal {
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Estilo para a seção de produtos */
+#produtos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas padrão */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Estilo individual do produto */
+.produto {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Menos sombra */
+    padding: 15px;
+    text-align: center;
+}
+
+.produto img {
+    width: 40%; /* Aumentando o tamanho da imagem */
+    height: auto;
+    border-radius: 8px;
+}
+
+.produto h3 {
+    margin-top: 10px;
+    font-size: 20px; /* Reduzindo o tamanho da fonte */
+}
+
+.produto p {
+    color: #555;
+}
+
+.produto button {
+    background-color: #333;
+    color: white;
+    padding: 8px 12px; /* Diminuindo o tamanho do botão */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.produto button:hover {
+    background-color: #555;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px; /* Menos padding */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilo para a seção de erro */
+#erro-container {
+    color: red;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Media Queries para dispositivos móveis */
+@media (max-width: 768px) {
+    /* Para telas pequenas, ajuste do layout do cabeçalho e menu */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* A seção de produtos ocupa duas colunas */
+    #produtos {
+        grid-template-columns: 1fr 1fr; /* 2 colunas */
+    }
+
+    .produto {
+        padding: 15px;
+    }
+
+    .produto h3 {
+        font-size: 18px;
+    }
+
+    /* Ajuste do modal */
+    .modal-content {
+        width: 80%;
+    }
+}
+
+@media (max-width: 400px) {
+    /* Para telas menores, ajuste do layout */
+    header h1 {
+        font-size: 18px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    /* Produtos em uma única coluna */
+    #produtos {
+        grid-template-columns: 1fr; /* 1 coluna */
+    }
+
+    .produto {
+        padding: 10px;
+    }
+
+    .produto h3 {
+        font-size: 16px;
+    }
+
+    footer {
+        font-size: 14px;
+        padding: 15px;
+    }
+}
